@@ -6,16 +6,26 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./folder-card.component.scss']
 })
 export class FolderCardComponent {
-    
-    @Input()
-    folder !: any;
 
-    constructor() {
+  @Input()
+  folder !: any;
 
-    }
+  files !: any[];
 
-    ngOnInit() {
-      
-    }
+  clicked = false;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+
+  }
+
+  openFolder() {
+    this.clicked = !this.clicked
+
+    this.files = [{ name: 'doc1' }, { name: 'doc2' }]
+  }
 
 }

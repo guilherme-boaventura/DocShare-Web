@@ -1,0 +1,30 @@
+@import '../../../styles.scss';
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    min-width: 65vw;
+    min-height: 86vh;
+    margin: 20px;
+    padding-top: 20vh;
+}
+
+.table-container {
+    min-width: 65vw;
+    max-height: 86vh;
+}
+
+.header-row {
+    background: linear-gradient($metallic-blue, #36404f);
+    background-color: $metallic-blue;
+}
+
+.filter-input {
+    margin-top: 10px;
+    width: 250px;
+}
+
+.white {
+    color: $ice-gray;
+}

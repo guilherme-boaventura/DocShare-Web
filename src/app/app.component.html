@@ -1,22 +1,28 @@
 <div class="top-bar">
-    <div style="width: 33vw">
-        <img style="height: 5.5vh" src="../assets/icone-branco.png" alt="Logo">
+    <div class="logo">
+        <img style="height: 10vh" src="../assets/icone-branco.png" alt="Logo">
     </div>
     <div class="title">
         <h2>Doc & Share</h2>
-        <button class="btn btn-primary">Bootstrap Button</button>
     </div>
     <div style="width: 33vw">
 
     </div>
 </div>
-<div class="side-bar">
-    <div class="my-folders-title">
-        Minhas Pastas
-    </div>
-    <div class="folder-list">
-        <div *ngFor="let folder of folders" class="folder-wrapper">
-            <folder-card [folder] ="folder"></folder-card>
+
+<div class="row w-100">
+    <div class="side-bar col">
+        <div class="my-folders-title">
+            <h4>Minhas Pastas</h4>
         </div>
+        <div class="folder-list">
+            <div *ngFor="let folder of folders" class="folder-wrapper">
+                <folder-card [folder] ="folder"></folder-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content col">
+        <folder-search></folder-search>
     </div>
 </div>

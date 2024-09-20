@@ -1,0 +1,46 @@
+@import '../../../styles.scss';
+
+.folder-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient($sky-blue, #335382);
+    min-height: 7vh;
+    width: 15vw;
+    color: white;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.clicked-folder-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient($sky-blue, #335382);
+    max-height: 6vh;
+    width: 15vw;
+    color: white;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    padding: 12px;
+}
+
+.folder-name {
+    min-width: 70%;
+    max-width: 70%;
+}
+
+.actions {
+    display: flex;
+    justify-content:space-evenly;
+    min-width: 30%;
+    max-width: 30%;
+
+    .action-button {
+        display: inline-block;
+        margin-right: 15px;
+        max-width: 15%;
+    }
+}

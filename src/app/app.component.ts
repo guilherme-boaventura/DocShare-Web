@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  folders : any = [{name: 'Pasta 1'}, {name: 'Pasta 2'}];
+  folders : any = [{name: 'Angular'}, {name: 'Spring Boot'}];
 
   constructor() {
 

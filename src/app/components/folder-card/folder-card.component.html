@@ -1,0 +1,23 @@
+<div [ngClass]="{'folder-card': !clicked, 'clicked-folder-card': clicked}" (click)="openFolder()">
+    <div class="folder-name">
+        <h5 class="m-0">{{folder.name}}</h5>
+    </div>
+    <div class="actions mb-2">
+        <div class="action-button">
+            <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+        <div class="action-button">
+            <button mat-icon-button>
+                <mat-icon>post_add</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="clicked">
+    <div *ngFor="let file of files">
+        <file-card [file]="file"></file-card>
+    </div>
+</div>
