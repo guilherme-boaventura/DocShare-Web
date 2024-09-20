@@ -1,0 +1,21 @@
+<div class="top-bar">
+    <div style="width: 33vw">
+        <img style="height: 5.5vh" src="../assets/icone-branco.png" alt="Logo">
+    </div>
+    <div class="title">
+        <h2>Doc & Share</h2>
+    </div>
+    <div style="width: 33vw">
+
+    </div>
+</div>
+<div class="side-bar">
+    <div class="my-folders-title">
+        Minhas Pastas
+    </div>
+    <div class="folder-list">
+        <div *ngFor="let folder of folders" class="folder-wrapper">
+            <folder-card [folder] ="folder"></folder-card>
+        </div>
+    </div>
+</div>

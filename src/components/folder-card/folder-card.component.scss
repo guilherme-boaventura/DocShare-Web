@@ -1,0 +1,11 @@
+@import '../../styles.scss';
+
+.folder-card {
+    display: flex;
+    flex-direction: row;
+    background-color: $ice-gray;
+    min-height: 10vh;
+    width: 15vw;
+    color: white;
+    border-radius: 12px;
+}
