@@ -6,7 +6,7 @@
     height: 7vh;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.285);
-    background-color: $graffiti;
+    background: linear-gradient($metallic-blue, #1f242c);
 }
 
 .logo {
@@ -32,12 +32,19 @@
         justify-content: center;
         color: $ice-gray;
         padding-top: 7%;
-        margin-bottom: 10px;
+    }
+
+    .add-button-row {
+        display: flex;
+        justify-content: flex-end;
+        min-height: 5.4vh;
+        color: $ice-gray;
+        padding-right: 10px;
     }
 
     min-width: 16vw;
     max-width: 16vw;
-    height: 93vh;
+    min-height: 93vh;
     max-height: 93vh;
     background-color: $dark-blue;
     padding-right: 0px;
@@ -47,14 +54,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 83vw;
+    min-width: 79vw;
+    max-width: 79vw;
 }
 
 .folder-list {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    max-height: 85vh;
+    max-height: 82vh;
+    padding-bottom: 10px;
 }
 
 
@@ -67,4 +76,51 @@
     :hover {
         cursor: pointer;
     }
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: #ffffff;
+    --mat-tab-header-active-label-text-color: #ffffff;
+    --mat-tab-header-active-ripple-color: #ffffff;
+    --mat-tab-header-inactive-ripple-color: #ffffff;
+    --mat-tab-header-active-focus-label-text-color: #ffffff;
+    --mat-tab-header-active-hover-label-text-color: #ffffff;
+    --mat-tab-header-active-focus-indicator-color: #ffffff;
+    --mat-tab-header-active-hover-indicator-color: #ffffff;
+    --mat-tab-header-pagination-icon-color: #ffffff;
+}
+
+::ng-deep .mat-mdc-tab-header-pagination-chevron {
+    --mat-tab-header-pagination-icon-color: white;
+}
+
+::ng-deep .mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body-content {
+    margin-top: 15px;
+}
+
+::ng-deep .mat-mdc-tab-body.mat-mdc-tab-body-active {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
+    flex-grow: 1;
+    min-height: 93vh;
+    max-height: 93vh;
+}
+
+@media(max-width: 1600px){
+
+    .side-bar {
+        min-width: 20vw;
+        max-width: 20vw;
+        height: 93vh;
+        max-height: 93vh;
+        background-color: $dark-blue;
+        padding-right: 0px;
+    }
+
+    .folder-list {
+        max-height: 78vh;
+    }
+
 }

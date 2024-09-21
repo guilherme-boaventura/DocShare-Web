@@ -10,6 +10,12 @@ const ELEMENT_DATA: UserData[] = [
   { id: 1, name: 'Alice', email: 'alice@example.com' },
   { id: 2, name: 'Bob', email: 'bob@example.com' },
   { id: 3, name: 'Charlie', email: 'charlie@example.com' },
+  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
+  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
+  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
+  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
+  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
+  { id: 3, name: 'Henrique', email: 'henrique@example.com' }
 ];
 
 @Component({
@@ -28,7 +34,6 @@ export class FolderSearchComponent {
 
   }
 
-  displayedColumns: string[] = ['name', 'email'];
   dataSource = ELEMENT_DATA;
 
   // Variável para armazenar o filtro

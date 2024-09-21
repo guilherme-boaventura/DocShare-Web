@@ -49,3 +49,14 @@
     overflow-y: auto;
     max-height: 22vh;
 }
+
+@media (max-width: 1600px) {
+    .folder-card {
+        width: 16vw;
+    }
+
+    .clicked-folder-card {
+        width: 16vw;
+    }
+    
+}

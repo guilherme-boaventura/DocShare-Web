@@ -4,10 +4,11 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid $graffiti;
-    max-width: calc(100% - 1px);
+    max-width: calc(100% - 3px);
     min-height: 5vh;
     background-color: white;
     justify-content: space-between;
+    overflow-x: hidden;
 }
 
 .file-name {

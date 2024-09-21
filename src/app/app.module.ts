@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table'
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { FolderCardComponent } from './components/folder-card/folder-card.component'
 import { FolderSearchComponent } from './pages/folder-search/folder-search.component';
@@ -32,7 +33,8 @@ import { FileCardComponent } from './components/file-card/file-card.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ],
   exports: [
     MatSidenavModule,
@@ -41,6 +43,7 @@ import { FileCardComponent } from './components/file-card/file-card.component';
     MatInputModule,
     MatFormFieldModule,
     MatTableModule,
+    MatTabsModule,
     BrowserAnimationsModule
   ],
   providers: [],
