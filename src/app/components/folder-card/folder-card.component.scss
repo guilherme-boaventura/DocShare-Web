@@ -6,8 +6,8 @@
     justify-content: space-between;
     align-items: center;
     background: linear-gradient($sky-blue, #335382);
-    min-height: 7vh;
-    width: 15vw;
+    min-height: 5vh;
+    width: 14vw;
     color: white;
     border-radius: 12px;
     padding: 12px;
@@ -19,8 +19,8 @@
     justify-content: space-between;
     align-items: center;
     background: linear-gradient($sky-blue, #335382);
-    max-height: 6vh;
-    width: 15vw;
+    max-height: 5vh;
+    width: 14vw;
     color: white;
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
@@ -43,4 +43,9 @@
         margin-right: 15px;
         max-width: 15%;
     }
+}
+
+.file-list {
+    overflow-y: auto;
+    max-height: 22vh;
 }

@@ -25,7 +25,7 @@ export class FolderCardComponent {
   openFolder() {
     this.clicked = !this.clicked
 
-    this.files = [{ name: 'doc1' }, { name: 'doc2' }]
+    this.files = [{ name: 'doc1'},{ name: 'doc2'},{ name: 'doc3'},{ name: 'doc4'},{ name: 'doc5'}]
   }
 
 }

@@ -26,17 +26,21 @@
 }
 
 .side-bar {
+
     .my-folders-title {
         display: flex;
         justify-content: center;
         color: $ice-gray;
         padding-top: 7%;
+        margin-bottom: 10px;
     }
 
-    max-width: 18vw;
+    min-width: 16vw;
+    max-width: 16vw;
     height: 93vh;
-    border-right: 1px solid rgba(0, 0, 0, 0.285);
+    max-height: 93vh;
     background-color: $dark-blue;
+    padding-right: 0px;
 }
 
 .page-content {
@@ -48,8 +52,9 @@
 
 .folder-list {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    overflow-y: auto;
+    max-height: 85vh;
 }
 
 

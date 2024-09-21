@@ -17,7 +17,7 @@
 </div>
 
 <div *ngIf="clicked">
-    <div *ngFor="let file of files">
-        <file-card [file]="file"></file-card>
+    <div class="file-list">
+        <file-card *ngFor="let file of files" [file]="file"></file-card>
     </div>
 </div>
