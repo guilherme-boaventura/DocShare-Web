@@ -6,14 +6,24 @@
     height: 7vh;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.285);
-    background: linear-gradient($metallic-blue, #1f242c);
+    background: $dark-blue;
 }
 
 .logo {
     display: flex;
     align-items: center;
     width: 33vw;
-    margin-top: 7px;
+    padding-left: 10px;
+}
+
+.logo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 30px;
 }
 
 .title {
@@ -22,7 +32,7 @@
     justify-content: center;
     height: 100%;
     width: 33vw;
-    color: $ice-gray
+    color: white;
 }
 
 .side-bar {
@@ -30,15 +40,14 @@
     .my-folders-title {
         display: flex;
         justify-content: center;
-        color: $ice-gray;
         padding-top: 7%;
     }
 
     .add-button-row {
         display: flex;
         justify-content: flex-end;
+        position: sticky;
         min-height: 5.4vh;
-        color: $ice-gray;
         padding-right: 10px;
     }
 
@@ -46,23 +55,24 @@
     max-width: 16vw;
     min-height: 93vh;
     max-height: 93vh;
-    background-color: $dark-blue;
+    background-color: $sky-blue;
     padding-right: 0px;
+    color: white;
 }
 
 .page-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 79vw;
-    max-width: 79vw;
+    min-width: 84vw;
+    max-width: 84vw;
 }
 
 .folder-list {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    max-height: 82vh;
+    max-height: 81.5vh;
     padding-bottom: 10px;
 }
 
@@ -101,11 +111,16 @@
 ::ng-deep .mat-mdc-tab-body.mat-mdc-tab-body-active {
     position: relative;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     z-index: 1;
     flex-grow: 1;
-    min-height: 93vh;
-    max-height: 93vh;
+    min-height: 87vh;
+    max-height: 87vh;
+}
+
+::ng-deep .mat-mdc-tab-body-content {
+    height: 100%;
+    overflow-y: hidden !important; 
 }
 
 @media(max-width: 1600px){
@@ -115,12 +130,22 @@
         max-width: 20vw;
         height: 93vh;
         max-height: 93vh;
-        background-color: $dark-blue;
+        background-color: $sky-blue;
         padding-right: 0px;
     }
 
     .folder-list {
-        max-height: 78vh;
+        min-height: 79vh;
+        max-height: 79vh;
     }
 
+    .page-content {
+        min-width: 80vw;
+        max-width: 80vw;
+    }
+
+    ::ng-deep .mat-mdc-tab-body.mat-mdc-tab-body-active {
+        min-height: 86vh;
+        max-height: 86vh;
+    }
 }

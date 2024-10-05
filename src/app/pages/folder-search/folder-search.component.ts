@@ -36,16 +36,23 @@ export class FolderSearchComponent {
 
   dataSource = ELEMENT_DATA;
 
-  // Variável para armazenar o filtro
   filterValue: string = '';
 
-  // Método para aplicar o filtro
-  applyFilter(event: Event) {
+  applyNameFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.filterValue = filterValue.trim().toLowerCase(); // Remove espaços e transforma em minúsculas
+    this.filterValue = filterValue.trim().toLowerCase();
   }
 
-  // Método para obter os dados filtrados
+  applyTagFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.filterValue = filterValue.trim().toLowerCase();
+  }
+
+  applyVisibilityFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.filterValue = filterValue.trim().toLowerCase();
+  }
+
   get filteredData() {
     return this.dataSource.filter(element => {
       return element.name.toLowerCase().includes(this.filterValue) || 

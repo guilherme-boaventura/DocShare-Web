@@ -11,18 +11,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table'
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FolderCardComponent } from './components/folder-card/folder-card.component'
 import { FolderSearchComponent } from './pages/folder-search/folder-search.component';
 import { FileCardComponent } from './components/file-card/file-card.component';
+import { FileInputDialog } from './dialogs/file-input/file-input.dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     FolderCardComponent,
     FolderSearchComponent,
-    FileCardComponent
+    FileCardComponent,
+    FileInputDialog
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { FileCardComponent } from './components/file-card/file-card.component';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   exports: [
     MatSidenavModule,
@@ -44,6 +48,7 @@ import { FileCardComponent } from './components/file-card/file-card.component';
     MatFormFieldModule,
     MatTableModule,
     MatTabsModule,
+    MatDialogModule,
     BrowserAnimationsModule
   ],
   providers: [],

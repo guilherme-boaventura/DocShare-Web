@@ -30,12 +30,11 @@ table {
     top: 0;
     z-index: 1;
     background-color: white;
-    /* Optional: to make the header stand out */
 }
 
 .header-row {
-    background: linear-gradient($metallic-blue, #36404f);
-    background-color: $metallic-blue;
+    background: $dark-blue, #36404f;
+    background-color: $dark-blue;
 }
 
 .filter-input {
@@ -44,5 +43,5 @@ table {
 }
 
 .white {
-    color: $ice-gray;
+    color: white;
 }

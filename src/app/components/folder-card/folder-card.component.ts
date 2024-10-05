@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FileInputDialog } from 'src/app/dialogs/file-input/file-input.dialog';
 
 @Component({
   selector: 'folder-card',
@@ -14,7 +16,7 @@ export class FolderCardComponent {
 
   clicked = false;
 
-  constructor() {
+  constructor(private dialog : MatDialog) {
 
   }
 
@@ -26,6 +28,15 @@ export class FolderCardComponent {
     this.clicked = !this.clicked
 
     this.files = [{ name: 'doc1'},{ name: 'doc2'},{ name: 'doc3'},{ name: 'doc4'},{ name: 'doc5'}]
+  }
+
+  openFileInputDialog() {
+    let dialogRef = this.dialog.open(FileInputDialog, {
+      height: '300px',
+      width: '700px',
+      disableClose: false,
+      hasBackdrop: true
+    });
   }
 
 }

@@ -3,17 +3,32 @@
         <table style="border-radius: 20px;" mat-table [dataSource]="filteredData" class="mat-elevation-z8">
 
             <!-- Linha Personalizada -->
-            <tr class="header-row" mat-header-row *matHeaderRowDef="['header'], sticky:true"></tr>
+            <tr class="header-row" mat-header-row *matHeaderRowDef="['header1','header2','header3'], sticky:true"></tr>
 
             <!-- Coluna Header -->
-            <ng-container matColumnDef="header">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="3">
+            <ng-container matColumnDef="header1">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1">
                     <div class="d-flex justify-content-space-between w-100 row">
-                        <div class="p-2 col-5">
-                            <input matInput placeholder="Filter" (keyup)="applyFilter($event)" />
+                        <div class="p-2 col">
+                            <input matInput placeholder="Search by folder" (keyup)="applyNameFilter($event)" />
                         </div>
-                        <div class="white p-2 col d-flex align-items-center">
-                            <h4 class="mb-0">Folder Search</h4>
+                    </div>
+                </th>
+            </ng-container>
+            <ng-container matColumnDef="header2">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1">
+                    <div class="d-flex justify-content-space-between w-100 row">
+                        <div class="p-2 col">
+                            <input matInput placeholder="Search by tag" (keyup)="applyTagFilter($event)" />
+                        </div>
+                    </div>
+                </th>
+            </ng-container>
+            <ng-container matColumnDef="header3">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1">
+                    <div class="d-flex justify-content-space-between w-100 row">
+                        <div class="p-2 col">
+                            <input matInput placeholder="Search by visibility" (keyup)="applyVisibilityFilter($event)" />
                         </div>
                     </div>
                 </th>
