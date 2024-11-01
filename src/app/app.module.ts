@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,9 +17,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { FolderCardComponent } from './components/folder-card/folder-card.component'
-import { FolderSearchComponent } from './pages/folder-search/folder-search.component';
+import { FolderSearchComponent } from './pages/folder-search/folder-search.page';
 import { FileCardComponent } from './components/file-card/file-card.component';
 import { FileInputDialog } from './dialogs/file-input/file-input.dialog';
+import { LoginPage } from './pages/login/login.page';
+import { AuthService } from './services/auth-service';
+import { HomePage } from './pages/home/home.page';
+import { provideToastr, ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,9 @@ import { FileInputDialog } from './dialogs/file-input/file-input.dialog';
     FolderCardComponent,
     FolderSearchComponent,
     FileCardComponent,
-    FileInputDialog
+    FileInputDialog,
+    LoginPage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,10 @@ import { FileInputDialog } from './dialogs/file-input/file-input.dialog';
     MatInputModule,
     MatTableModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
+    FormsModule, 
+    ToastrModule.forRoot()
   ],
   exports: [
     MatSidenavModule,
@@ -49,9 +60,15 @@ import { FileInputDialog } from './dialogs/file-input/file-input.dialog';
     MatTableModule,
     MatTabsModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    provideAnimations(), 
+    provideToastr()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

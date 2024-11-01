@@ -20,8 +20,8 @@ const ELEMENT_DATA: UserData[] = [
 
 @Component({
   selector: 'folder-search',
-  templateUrl: './folder-search.component.html',
-  styleUrls: ['./folder-search.component.scss']
+  templateUrl: './folder-search.page.html',
+  styleUrls: ['./folder-search.page.scss']
 })
 export class FolderSearchComponent {
 

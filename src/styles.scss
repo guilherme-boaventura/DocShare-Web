@@ -1,3 +1,5 @@
+@import 'ngx-toastr/toastr';
+
 $dark-blue: #083578;
 $sky-blue: #3887FF;
 $golden: #E6B85C;
@@ -26,4 +28,9 @@ $golden: #E6B85C;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.dialog-wrapper {
+  height: 100%;
+  padding: 10px;
 }

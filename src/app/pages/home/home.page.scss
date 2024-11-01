@@ -1,0 +1,158 @@
+@import '../../../styles.scss';
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.285);
+    background: $dark-blue;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: 33vw;
+    padding-left: 10px;
+}
+
+.logo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 33vw;
+    color: white;
+}
+
+.side-bar {
+
+    .my-folders-title {
+        display: flex;
+        justify-content: center;
+        padding-top: 7%;
+    }
+
+    .add-button-row {
+        display: flex;
+        justify-content: flex-end;
+        position: sticky;
+        min-height: 5.4vh;
+        padding-right: 10px;
+    }
+
+    min-width: 16vw;
+    max-width: 16vw;
+    min-height: 93vh;
+    max-height: 93vh;
+    background-color: $sky-blue;
+    padding-right: 0px;
+    color: white;
+}
+
+.page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 84vw;
+    max-width: 84vw;
+}
+
+.folder-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 81.5vh;
+    padding-bottom: 10px;
+}
+
+
+.folder-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 3vh;
+
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.user-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 33vw;
+    color: white;
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: #ffffff;
+    --mat-tab-header-active-label-text-color: #ffffff;
+    --mat-tab-header-active-ripple-color: #ffffff;
+    --mat-tab-header-inactive-ripple-color: #ffffff;
+    --mat-tab-header-active-focus-label-text-color: #ffffff;
+    --mat-tab-header-active-hover-label-text-color: #ffffff;
+    --mat-tab-header-active-focus-indicator-color: #ffffff;
+    --mat-tab-header-active-hover-indicator-color: #ffffff;
+    --mat-tab-header-pagination-icon-color: #ffffff;
+}
+
+::ng-deep .mat-mdc-tab-header-pagination-chevron {
+    --mat-tab-header-pagination-icon-color: white;
+}
+
+::ng-deep .mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body-content {
+    margin-top: 15px;
+}
+
+::ng-deep .mat-mdc-tab-body.mat-mdc-tab-body-active {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: 1;
+    flex-grow: 1;
+    min-height: 87vh;
+    max-height: 87vh;
+}
+
+::ng-deep .mat-mdc-tab-body-content {
+    height: 100%;
+    overflow-y: hidden !important; 
+}
+
+@media(max-width: 1600px){
+
+    .side-bar {
+        min-width: 20vw;
+        max-width: 20vw;
+        height: 93vh;
+        max-height: 93vh;
+        background-color: $sky-blue;
+        padding-right: 0px;
+    }
+
+    .folder-list {
+        min-height: 79vh;
+        max-height: 79vh;
+    }
+
+    .page-content {
+        min-width: 79vw;
+        max-width: 79vw;
+    }
+
+    ::ng-deep .mat-mdc-tab-body.mat-mdc-tab-body-active {
+        min-height: 86vh;
+        max-height: 86vh;
+    }
+}

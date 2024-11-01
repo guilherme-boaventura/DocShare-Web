@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-  folders : any = [{name: 'Angular'}, {name: 'Spring Boot'}, {name: 'Postgres'}, {name: 'SQL Server'}, {name: 'Docker'}];
-  folders2 : any = [{name: 'Massinha e js'}, {name: 'Delineador'}, {name: 'Tik Tok'}];
 
   constructor() {
 
@@ -16,5 +13,4 @@ export class AppComponent {
 
   ngOnInit() {
   }
-
 }

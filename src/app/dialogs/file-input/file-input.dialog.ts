@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   templateUrl: './file-input.dialog.html',
@@ -6,9 +7,27 @@ import { Component } from '@angular/core';
 })
 export class FileInputDialog {
 
-    constructor() {
 
-    }
+  fileName !: any
+  selectedFile !: any
 
+  constructor(
+    public dialogRef: MatDialogRef<FileInputDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+
+  }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0]
+  }
+
+  confirm(){
+    this.dialogRef.close({file : this.selectedFile, fileName : this.fileName})
+  }
+
+  cancel() {
+    this.dialogRef.close()
+  }
 
 }

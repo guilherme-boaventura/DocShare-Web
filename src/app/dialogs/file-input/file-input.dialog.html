@@ -1,17 +1,22 @@
-<h2 mat-dialog-title  class="flex-align-justify-center">Hi Guilherme</h2>
-<mat-dialog-content class="flex-align-justify-center dialog-content">
-    <button mat-fab color="primary">
-        <mat-icon>attach_file</mat-icon>
-    </button>
-    <mat-form-field style="width: 60%;" appearance="outline" subscriptSizing="dynamic">
-        <input matInput >
-    </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions class="flex-align-justify-center">
-    <button mat-raised-button color="primary">
-        Cancel
-    </button>
-    <button mat-raised-button color="primary">
-        Confirm
-    </button>
-</mat-dialog-actions>
+<div class="dialog-wrapper">
+    <div mat-dialog-title class="flex-align-justify-center">Inserir novo arquivo</div>
+    <mat-dialog-content class="flex-align-justify-center dialog-content">
+        <button mat-fab color="primary" style="margin-right: 10px;" (click)="fileInput.click()">
+            <mat-icon>attach_file</mat-icon>
+        </button>
+        <mat-form-field style="width: 60%; padding-right: 10px;" appearance="outline" subscriptSizing="dynamic">
+            <input matInput [(ngModel)]="fileName">
+        </mat-form-field>
+
+        <input #fileInput type="file" hidden (change)="onFileSelected($event)">
+
+    </mat-dialog-content>
+    <mat-dialog-actions class="flex-align-justify-center">
+        <button mat-raised-button color="primary">
+            Cancel
+        </button>
+        <button mat-raised-button color="primary">
+            Confirm
+        </button>
+    </mat-dialog-actions>
+</div>
