@@ -1,0 +1,38 @@
+<div class="dialog-wrapper">
+    <div mat-dialog-title class="flex-align-justify-center">Create new folder</div>
+    <mat-dialog-content class="flex-align-justify-center dialog-content">
+        <div class="col">
+            <div class="row-3 flex-align-justify-center mb-3">
+                <mat-form-field style="width: 60%; padding-right: 10px;" appearance="outline" subscriptSizing="dynamic">
+                    <input placeholder="Folder name" matInput [(ngModel)]="folderName">
+                </mat-form-field>
+            </div>
+            <div class="row-3 flex-align-justify-center mb-3">
+                <mat-form-field style="width: 60%; padding-right: 10px;" appearance="outline" subscriptSizing="dynamic">
+                    <mat-select placeholder="Visibility" [(ngModel)]="selectedVisibility">
+                        <mat-option *ngFor="let option of visibilities" [value]="option.acronym">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row-3 flex-align-justify-center">
+                <mat-form-field style="width: 60%; padding-right: 10px;" appearance="outline" subscriptSizing="dynamic">
+                    <mat-select placeholder="Tag" [(ngModel)]="selectedTag">
+                        <mat-option *ngFor="let option of tags" [value]="option.acronym">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        </mat-dialog-content>
+    <mat-dialog-actions class="flex-align-justify-center">
+        <button mat-raised-button color="primary" (click)="confirm()">
+            Confirm
+        </button>
+        <button mat-raised-button color="primary" (click)="cancel()">
+            Cancel
+        </button>
+    </mat-dialog-actions>
+</div>

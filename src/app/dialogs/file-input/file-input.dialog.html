@@ -1,5 +1,5 @@
 <div class="dialog-wrapper">
-    <div mat-dialog-title class="flex-align-justify-center">Inserir novo arquivo</div>
+    <div mat-dialog-title class="flex-align-justify-center">File upload</div>
     <mat-dialog-content class="flex-align-justify-center dialog-content">
         <button mat-fab color="primary" style="margin-right: 10px;" (click)="fileInput.click()">
             <mat-icon>attach_file</mat-icon>
@@ -12,11 +12,11 @@
 
     </mat-dialog-content>
     <mat-dialog-actions class="flex-align-justify-center">
-        <button mat-raised-button color="primary">
-            Cancel
-        </button>
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" (click)="confirm()">
             Confirm
+        </button>
+        <button mat-raised-button color="primary" (click)="cancel()">
+            Cancel
         </button>
     </mat-dialog-actions>
 </div>

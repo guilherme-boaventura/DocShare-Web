@@ -4,9 +4,13 @@
     </div>
     <div class="actions mb-2">
         <div class="action-button">
-            <button mat-icon-button>
-                <mat-icon>edit</mat-icon>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
             </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="openFolderEditionDialog()">Edit</button>
+              <button mat-menu-item (click)="deleteFolder()">Delete</button>
+            </mat-menu>
         </div>
         <div class="action-button">
             <button mat-icon-button (click)="openFileInputDialog()">
@@ -17,6 +21,9 @@
 </div>
 
 <div *ngIf="clicked">
+    <div *ngIf="!files || files.length == 0" class="file-list" style="background-color: white; color: black; padding-left: 10px;">
+        Empty folder
+    </div>
     <div class="file-list">
         <file-card *ngFor="let file of files" [file]="file"></file-card>
     </div>

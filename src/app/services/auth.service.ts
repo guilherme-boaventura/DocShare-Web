@@ -17,7 +17,8 @@ export class AuthService {
       .pipe(
         tap(response => {
           if (response.token) {
-            localStorage.setItem('authToken', response.token);
+            document.cookie = `docShareAuthToken=${response.token}; path=/; max-age=3600; SameSite=Strict`;
+            // sessionStorage.setItem('authToken', response.token);
             this.toastr.success('Successfully authenticated', 'Welcome!', {timeOut: 3000})
           }
         }),
@@ -29,11 +30,22 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('authToken');
+    document.cookie = 'docShareAuthToken=; path=/; max-age=0; SameSite=Strict';
+    // sessionStorage.removeItem('authToken');
     window.location.reload()
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('authToken');
+    return this.isCookiePresent('docShareAuthToken')
+    // return !!sessionStorage.getItem('authToken');
+  }
+
+  isCookiePresent(cookieName: string): boolean {
+    return document.cookie.split('; ').some((cookie) => cookie.startsWith(`${cookieName}=`));
+  }
+
+  getTokenFromCookie(cookieName: string): string | undefined {
+    const match = document.cookie.split('; ').find(row => row.startsWith(`${cookieName}=`));
+    return match ? match.split('=')[1] : undefined;
   }
 }

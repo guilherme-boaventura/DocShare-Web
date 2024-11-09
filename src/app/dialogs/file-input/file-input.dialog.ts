@@ -20,6 +20,7 @@ export class FileInputDialog {
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0]
+    this.fileName = this.selectedFile.name
   }
 
   confirm(){
