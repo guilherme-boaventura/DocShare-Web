@@ -1,12 +1,17 @@
 <div class="wrapper">
-    <div class="file-name">
-        {{file.name}}
+    <div class="file-name" [matTooltip]="file.name">
+        {{(file.name.length > 22)? file.name.substring(0,19)+'...' : file.name}}
     </div>
     <div class="actions mb-2">
         <div class="action-button">
-            <button mat-icon-button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>
             </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="download()">Download</button>
+              <button mat-menu-item (click)="openFileEditionDialog()">Edit</button>
+              <button mat-menu-item (click)="delete()">Delete</button>
+            </mat-menu>
         </div>
     </div>
 </div>

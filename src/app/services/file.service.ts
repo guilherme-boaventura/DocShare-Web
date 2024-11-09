@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileService {
+  
   private apiUrl = 'http://localhost:8080/api/file'; 
 
   constructor(private http: HttpClient) {}
@@ -23,4 +24,12 @@ export class FileService {
   getByFolder(folderId:any) {
     return this.http.get(`${this.apiUrl}/getByFolder?folderId=${folderId}`)
   }
-}
+
+  delete(fileId : any) {
+    return this.http.get(`${this.apiUrl}/deleteFile?fileId=${fileId}`)
+  }
+
+  download(fileId : any) {
+    return this.http.get(`${this.apiUrl}/downloadFile?fileId=${fileId}`, { responseType: 'blob' })
+  }
+ }

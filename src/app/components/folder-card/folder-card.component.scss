@@ -47,11 +47,16 @@
 .file-list {
     overflow-y: auto;
     max-height: 22vh;
+    width: 14vw;
     border-bottom-left-radius: 5px;
 }
 
 @media (max-width: 1600px) {
     .folder-card {
+        width: 16vw;
+    }
+
+    .file-list {
         width: 16vw;
     }
 

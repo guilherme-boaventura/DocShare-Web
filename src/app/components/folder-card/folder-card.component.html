@@ -1,5 +1,5 @@
-<div [ngClass]="{'folder-card': !clicked, 'clicked-folder-card': clicked}" (click)="openFolder()">
-    <div class="folder-name">
+<div [ngClass]="{'folder-card': !clicked, 'clicked-folder-card': clicked}">
+    <div class="folder-name" (click)="openFolder()">
         <h5 class="m-0">{{folder.name}}</h5>
     </div>
     <div class="actions mb-2">

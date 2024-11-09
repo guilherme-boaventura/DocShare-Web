@@ -17,6 +17,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { FolderCardComponent } from './components/folder-card/folder-card.component'
 import { FolderSearchComponent } from './pages/folder-search/folder-search.page';
@@ -58,6 +59,7 @@ import { AuthInterceptor } from './utils/http-interceptor';
     FormsModule, 
     MatSelectModule,
     MatMenuModule,
+    MatTooltipModule,
     ToastrModule.forRoot()
   ],
   exports: [
@@ -73,6 +75,7 @@ import { AuthInterceptor } from './utils/http-interceptor';
     MatSelectModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatTooltipModule,
     MatMenuModule
     
   ],

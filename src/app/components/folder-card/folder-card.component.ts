@@ -35,6 +35,11 @@ export class FolderCardComponent {
     this.fileService.getByFolder(this.folder.id).subscribe((resp:any) => {
       this.files = resp
     })
+
+    this.eventService.fileDeletedEvent.subscribe((resp) => {
+      this.files = this.files.filter(f => resp.id != f.id)
+      this.toastr.success('File successfully deleted!')
+    })
   }
 
   openFolder() {
@@ -51,7 +56,8 @@ export class FolderCardComponent {
 
     dialogRef.afterClosed().subscribe((resp) => {
       this.fileService.saveFile(resp.file, resp.fileName, this.folder.id).subscribe(resp => {
-        console.log(resp);
+        this.files.push(resp)
+        this.toastr.success('New file succesfully uploaded!')
       })
     })
   }
