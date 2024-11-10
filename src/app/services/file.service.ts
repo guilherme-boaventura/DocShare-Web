@@ -11,12 +11,24 @@ export class FileService {
 
   constructor(private http: HttpClient) {}
 
-  saveFile(pFile:any, pFileName : any, pFolderId:any) {
+  saveFile(pFile:any, pFileName : any, pFolderId:any, pFileId : any) {
     const body = new FormData()
 
-    body.append("file", pFile)
-    body.append("fileName", pFileName)
-    body.append("folderId", pFolderId)
+    if(pFile) {
+      body.append("file", pFile)
+    }
+
+    if(pFileName) {
+      body.append("fileName", pFileName)
+    }
+
+    if(pFolderId) {
+      body.append("folderId", pFolderId)
+    }
+
+    if(pFileId) {
+      body.append("fileId", pFileId)
+    }
 
     return this.http.post(`${this.apiUrl}/saveFile`, body)
   }

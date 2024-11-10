@@ -1,6 +1,6 @@
 <div [ngClass]="{'folder-card': !clicked, 'clicked-folder-card': clicked}">
     <div class="folder-name" (click)="openFolder()">
-        <h5 class="m-0">{{folder.name}}</h5>
+        <h5 [matTooltip]="folder.name" class="m-0">{{(folder.name.length > 22)? folder.name.substring(0,15)+'...' : folder.name}}</h5>
     </div>
     <div class="actions mb-2">
         <div class="action-button">
@@ -8,12 +8,12 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="openFolderEditionDialog()">Edit</button>
+              <button *ngIf="!folder.referenceFolder" mat-menu-item (click)="openFolderEditionDialog()">Edit</button>
               <button mat-menu-item (click)="deleteFolder()">Delete</button>
             </mat-menu>
         </div>
-        <div class="action-button">
-            <button mat-icon-button (click)="openFileInputDialog()">
+        <div *ngIf="!folder.referenceFolder" class="action-button">
+            <button matTooltip="Upload file" mat-icon-button (click)="openFileInputDialog()">
                 <mat-icon>post_add</mat-icon>
             </button>
         </div>

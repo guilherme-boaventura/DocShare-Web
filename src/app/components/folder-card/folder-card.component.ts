@@ -32,10 +32,6 @@ export class FolderCardComponent {
   }
 
   ngOnInit() {
-    this.fileService.getByFolder(this.folder.id).subscribe((resp:any) => {
-      this.files = resp
-    })
-
     this.eventService.fileDeletedEvent.subscribe((resp) => {
       this.files = this.files.filter(f => resp.id != f.id)
       this.toastr.success('File successfully deleted!')
@@ -43,6 +39,12 @@ export class FolderCardComponent {
   }
 
   openFolder() {
+    if(!this.clicked) {
+      this.fileService.getByFolder(this.folder.id).subscribe((resp:any) => {
+        this.files = resp
+      })
+    }
+    
     this.clicked = !this.clicked
   }
 
@@ -57,7 +59,7 @@ export class FolderCardComponent {
     });
 
     dialogRef.afterClosed().subscribe((resp) => {
-      this.fileService.saveFile(resp.file, resp.fileName, this.folder.id).subscribe(resp => {
+      this.fileService.saveFile(resp.file, resp.fileName, this.folder.id, undefined).subscribe(resp => {
         this.files.push(resp)
         this.toastr.success('New file succesfully uploaded!')
       })

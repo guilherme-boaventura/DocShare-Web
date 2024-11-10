@@ -33,8 +33,13 @@ export class HomePage {
 
   getUserFolders() {
     this.folderService.getUserFolders().subscribe((resp:any)=> {
-      this.userFolders = resp
+
+      this.userFolders = resp.filter((f : any) => !f.referenceFolder)
       this.userFolders.sort((a, b) => b.id - a.id);
+
+      this.importedFolders = resp.filter((f : any) => f.referenceFolder)
+      this.importedFolders.sort((a, b) => b.id - a.id);
+      
     })
   }
 

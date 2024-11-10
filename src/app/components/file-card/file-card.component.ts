@@ -22,7 +22,7 @@ export class FileCardComponent {
   }
 
   ngOnInit() {
-
+    
   }
 
   download() {
@@ -31,7 +31,7 @@ export class FileCardComponent {
 
        const a = document.createElement('a');
        a.href = url;
-       a.download = this.file.name;
+       a.download = (this.file.name.endsWith(this.file.extension))? this.file.name : this.file.name + this.file.extension;
        document.body.appendChild(a);
        a.click();
  
@@ -58,9 +58,9 @@ export class FileCardComponent {
     });
 
     dialogRef.afterClosed().subscribe((resp) => {
-      // this.fileService.saveFile(undefined, resp.fileName, undefined).subscribe(resp => {
-        
-      // })
+      this.fileService.saveFile(undefined, resp.fileName, undefined, this.file.id).subscribe(resp => {
+        this.file = resp
+      })
     })
   }
 

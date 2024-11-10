@@ -8,7 +8,7 @@
         <h2>Doc & Share</h2>
     </div>
     <div class="user-actions">
-        <button mat-icon-button (click)="logout()"><mat-icon>logout</mat-icon></button>
+        <button matTooltip="Logout" mat-icon-button (click)="logout()"><mat-icon>logout</mat-icon></button>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
                     <div class="text-white">My Folders</div>
                 </ng-template>
                 <div class="add-button-row">
-                    <button mat-icon-button (click)="openNewFolderDialog()">
+                    <button matTooltip="Create new folder" mat-icon-button (click)="openNewFolderDialog()">
                         <mat-icon>create_new_folder</mat-icon>
                     </button>
                 </div>
