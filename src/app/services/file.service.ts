@@ -11,7 +11,7 @@ export class FileService {
 
   constructor(private http: HttpClient) {}
 
-  saveFile(pFile:File, pFileName : any, pFolderId:any) {
+  saveFile(pFile:any, pFileName : any, pFolderId:any) {
     const body = new FormData()
 
     body.append("file", pFile)

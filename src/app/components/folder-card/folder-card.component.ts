@@ -51,7 +51,9 @@ export class FolderCardComponent {
       height: '300px',
       width: '700px',
       disableClose: false,
-      hasBackdrop: true
+      hasBackdrop: true,
+      data: { editMode : false
+       }
     });
 
     dialogRef.afterClosed().subscribe((resp) => {

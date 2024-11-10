@@ -17,6 +17,12 @@ export class FileInputDialog {
 
   }
 
+  ngOnInit() {
+    if(this.data.editMode) {
+      this.fileName = this.data.fileName
+    }
+  }
+
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0]
     this.fileName = this.selectedFile.name

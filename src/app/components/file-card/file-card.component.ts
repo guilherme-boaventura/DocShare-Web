@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FileInputDialog } from 'src/app/dialogs/file-input/file-input.dialog';
 import { EventService } from 'src/app/services/events.service';
 import { FileService } from 'src/app/services/file.service';
 
@@ -13,7 +15,8 @@ export class FileCardComponent {
   file !: any;
 
   constructor(private fileService : FileService,
-              private eventsService : EventService
+              private eventsService : EventService,
+              private dialog : MatDialog
   ) {
 
   }
@@ -44,7 +47,21 @@ export class FileCardComponent {
   }
 
   openFileEditionDialog() {
+    let dialogRef = this.dialog.open(FileInputDialog, {
+      height: '300px',
+      width: '700px',
+      disableClose: false,
+      hasBackdrop: true,
+      data: { editMode : true,
+              fileName : this.file.name
+       }
+    });
 
+    dialogRef.afterClosed().subscribe((resp) => {
+      // this.fileService.saveFile(undefined, resp.fileName, undefined).subscribe(resp => {
+        
+      // })
+    })
   }
 
 }
