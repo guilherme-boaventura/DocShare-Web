@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   templateUrl: './file-input.dialog.html',
@@ -12,7 +13,8 @@ export class FileInputDialog {
 
   constructor(
     public dialogRef: MatDialogRef<FileInputDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private toastr: ToastrService
   ) {
 
   }
@@ -29,7 +31,11 @@ export class FileInputDialog {
   }
 
   confirm(){
-    this.dialogRef.close({file : this.selectedFile, fileName : this.fileName})
+    if(!this.selectedFile || !this.fileName) {
+      this.toastr.error('Please complete all fields correctly.')
+    } else {
+      this.dialogRef.close({file : this.selectedFile, fileName : this.fileName})
+    }
   }
 
   cancel() {

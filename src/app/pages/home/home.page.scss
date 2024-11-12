@@ -26,6 +26,10 @@
     border-radius: 30px;
 }
 
+.logo-img {
+    height: 3.5vh
+}
+
 .title {
     display: flex;
     align-items: center;
@@ -154,5 +158,10 @@
     ::ng-deep .mat-mdc-tab-body.mat-mdc-tab-body-active {
         min-height: 86vh;
         max-height: 86vh;
+    }
+
+    .logo-circle {
+        height: 40px;
+        width: 40px;
     }
 }

@@ -22,8 +22,15 @@ export class HomePage {
               private toastr : ToastrService,
               private eventService : EventService
             ) {
+              
     this.eventService.folderDeletedEvent.subscribe((folder)=>{
       this.userFolders = this.userFolders.filter(f=> f.id != folder.id)
+      this.importedFolders = this.importedFolders.filter(f=> f.id != folder.id)
+    }) 
+
+    this.eventService.folderImportedEvent.subscribe((folder)=>{
+      this.importedFolders.push(folder)
+      this.toastr.success('Folder sucessfully imported!')
     }) 
   }
 
@@ -53,7 +60,7 @@ export class HomePage {
 
     dialogRef.afterClosed().subscribe((resp)=> {
       if(resp) {
-        this.folderService.saveFolder(undefined,resp.name, resp.visibility, resp.tag).subscribe((resp) => {
+        this.folderService.saveFolder(undefined,resp.name, resp.visibility, resp.tag, null).subscribe((resp) => {
           this.userFolders.push(resp)
           this.toastr.success('Folder successfully created!')
         })

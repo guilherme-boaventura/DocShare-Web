@@ -9,8 +9,8 @@
             </button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="download()">Download</button>
-              <button mat-menu-item (click)="openFileEditionDialog()">Edit</button>
-              <button mat-menu-item (click)="delete()">Delete</button>
+              <button *ngIf="editable" mat-menu-item (click)="openFileEditionDialog()">Edit</button>
+              <button *ngIf="editable" mat-menu-item (click)="delete()">Delete</button>
             </mat-menu>
         </div>
     </div>

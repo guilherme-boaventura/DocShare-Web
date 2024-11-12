@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { FolderService } from 'src/app/services/folder.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class NewFolderDialog {
   constructor(
     public dialogRef: MatDialogRef<NewFolderDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private folderService: FolderService
+    private folderService: FolderService,
+    private toastr: ToastrService
   ) {
 
   }
@@ -39,7 +41,11 @@ export class NewFolderDialog {
   }
 
   confirm(){
-    this.dialogRef.close({name: this.folderName, visibility: this.selectedVisibility, tag: this.selectedTag})
+    if(!this.folderName || !this.selectedVisibility || !this.selectedTag) {
+      this.toastr.error('Please complete all fields correctly.')
+    }else {
+      this.dialogRef.close({name: this.folderName, visibility: this.selectedVisibility, tag: this.selectedTag})
+    }
   }
 
   cancel() {

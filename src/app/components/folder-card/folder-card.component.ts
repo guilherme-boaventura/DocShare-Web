@@ -77,7 +77,7 @@ export class FolderCardComponent {
 
     dialogRef.afterClosed().subscribe((resp)=> {
       if(resp) {
-        this.folderService.saveFolder(this.folder.id, resp.name, resp.visibility, resp.tag).subscribe((resp) => {
+        this.folderService.saveFolder(this.folder.id, resp.name, resp.visibility, resp.tag, null).subscribe((resp) => {
           this.folder = resp
           this.toastr.success('Folder successfully edited!')
         })

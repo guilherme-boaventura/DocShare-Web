@@ -1,22 +1,7 @@
 import { Component } from '@angular/core';
+import { EventService } from 'src/app/services/events.service';
+import { FolderService } from 'src/app/services/folder.service';
 
-interface UserData {
-  id: number;
-  name: string;
-  email: string;
-}
-
-const ELEMENT_DATA: UserData[] = [
-  { id: 1, name: 'Alice', email: 'alice@example.com' },
-  { id: 2, name: 'Bob', email: 'bob@example.com' },
-  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-  { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-  { id: 3, name: 'Henrique', email: 'henrique@example.com' }
-];
 
 @Component({
   selector: 'folder-search',
@@ -24,39 +9,42 @@ const ELEMENT_DATA: UserData[] = [
   styleUrls: ['./folder-search.page.scss']
 })
 export class FolderSearchComponent {
+  
+  dataSource : any[] = [];
+
+  filterValue: string = '';
 
 
-  constructor() {
+  constructor(private folderService : FolderService,
+              private eventService : EventService
+  ) {
 
   }
 
   ngOnInit() {
+    this.folderService.getSharedFolders().subscribe((resp:any) => {
+      this.dataSource = resp
+    })
+ }
 
-  }
-
-  dataSource = ELEMENT_DATA;
-
-  filterValue: string = '';
-
-  applyNameFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.filterValue = filterValue.trim().toLowerCase();
-  }
-
-  applyTagFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.filterValue = filterValue.trim().toLowerCase();
-  }
-
-  applyVisibilityFilter(event: Event) {
+  applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.filterValue = filterValue.trim().toLowerCase();
   }
 
   get filteredData() {
-    return this.dataSource.filter(element => {
-      return element.name.toLowerCase().includes(this.filterValue) || 
-             element.email.toLowerCase().includes(this.filterValue);
-    });
+    return this.dataSource.filter(element => 
+            element.name.toLowerCase().includes(this.filterValue.toLowerCase()) || 
+            element.tag.name.toLowerCase().includes(this.filterValue.toLowerCase()) || 
+            element.visibility.name.toLowerCase().includes(this.filterValue.toLowerCase()) || 
+            element.user.username.toLowerCase().includes(this.filterValue.toLowerCase()) || 
+            element.user.department.toLowerCase().includes(this.filterValue.toLowerCase())
+    )
+  }
+
+  importFolder(folder:any) {
+    this.folderService.saveFolder(null,folder.name,folder.visibility.acronym,folder.tag.acronym,folder.id).subscribe((resp:any) => {
+      this.eventService.emitFolderImported(resp)
+    })
   }
 }

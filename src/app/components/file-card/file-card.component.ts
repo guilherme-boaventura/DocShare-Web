@@ -14,6 +14,9 @@ export class FileCardComponent {
   @Input()
   file !: any;
 
+  @Input()
+  editable !: any
+
   constructor(private fileService : FileService,
               private eventsService : EventService,
               private dialog : MatDialog
